@@ -1,6 +1,4 @@
-import  time, datetime, asyncio
-import os.path 
-import os
+import  time, datetime, os.path, os
 from pyowm import OWM
 from pyowm.utils.config import get_default_config
 config_dict = get_default_config()
@@ -9,7 +7,7 @@ config_dict['language'] = 'ru'
 owm = OWM('449eaf77b3da91774fae55929496bad0', config_dict)
 mgr = owm.weather_manager()
 
-async def weatherstate(b, a, c):
+def weatherstate(b, a, c):
     
     failname = 'temp.txt'
     cur_dir = os.getcwd()
@@ -52,4 +50,4 @@ a = int(input("COl=Vo: "))
 c = int(input("Time Step (on second's): "))
 
 
-asyncio.run(weatherstate(b , a, c))
+weatherstate(b , a, c)
